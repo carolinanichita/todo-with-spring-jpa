@@ -26,7 +26,7 @@ public class TodoController {
     }
 
     @GetMapping("/{id}")
-    public Todo read(@PathVariable("id") Long id) {
+    public Todo findById(@PathVariable("id") Long id) {
         return todoService.findById(id);
     }
 
@@ -36,7 +36,7 @@ public class TodoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable("id") Long id) {
+    public ResponseEntity deleteById(@PathVariable("id") Long id) {
         try {
             todoService.deleteById(id);
             return new ResponseEntity(HttpStatus.OK);
