@@ -1,14 +1,9 @@
 package cn.todo;
 
-import cn.todo.controllers.TodoRestController;
-import cn.todo.domains.Todo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.server.RepresentationModelProcessor;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class TodoApplication {
@@ -18,13 +13,8 @@ public class TodoApplication {
 	}
 
 	@Bean
-	public RepresentationModelProcessor<EntityModel<Todo>> todoProcessor() {
-		return new RepresentationModelProcessor<EntityModel<Todo>>() {
-			@Override
-			public EntityModel<Todo> process(EntityModel<Todo> model) {
-				model.add(linkTo(methodOn(TodoRestController.class).todoTypes()).withRel("todoTypes"));
-				return model;
-			}
-		};
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
 	}
+
 }

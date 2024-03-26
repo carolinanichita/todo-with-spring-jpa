@@ -1,18 +1,17 @@
 package cn.todo.domains;
 
-import cn.todo.events.TodoEvent;
 import cn.todo.utils.validators.TitleConstraint;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
+import cn.todo.events.TodoCreationEvent;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.springframework.context.event.EventListener;
 import org.springframework.data.domain.AbstractAggregateRoot;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -58,22 +57,7 @@ public class Todo extends AbstractAggregateRoot<Todo> {
     @JsonProperty("type")
     private TodoType type;
 
-    public void setDateDone(Date dateDone) {
-        this.dateDone = dateDone;
-        System.out.println("I was here...");
-        registerEvent(this);
-    }
-
-    @EventListener
-    public void beforeSave(Todo todo) {
-        System.out.println("I am here");
-        System.out.println(todo.toString());
-        if (null != todo.getDateDone()) {
-            todo.setDone(true);
-        }
-    }
-
     public void afterSave() {
-        registerEvent(new TodoEvent());
+        registerEvent(new TodoCreationEvent());
     }
 }
