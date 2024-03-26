@@ -17,3 +17,4 @@ public class DataFormatXmlAdapter extends XmlAdapter<String, Date> {
         return sdf.format(v);
     }
 }
+
