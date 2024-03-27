@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cn.todo.unit.NationalityWebClientServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-03-27T14:19:44" hostname="nichitas-macbook-pro.home" time="1.333">
+  <properties/>
+  <testcase name="givenWebServerIsMocked_whenPredictNationality_thenReceiveTheResponse()" classname="cn.todo.unit.NationalityWebClientServiceTest" time="1.333"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Mar 27, 2024 3:19:44 PM okhttp3.mockwebserver.MockWebServer$start$$inlined$execute$1 run
+INFO: MockWebServer[56620] starting to accept connections
+Mar 27, 2024 3:19:46 PM okhttp3.mockwebserver.MockWebServer$SocketHandler processOneRequest
+INFO: MockWebServer[56620] received request: GET /?name=anshul HTTP/1.1 and responded: HTTP/1.1 200 OK
+Mar 27, 2024 3:19:46 PM okhttp3.mockwebserver.MockWebServer acceptConnections
+INFO: MockWebServer[56620] done accepting connections: Socket closed
+]]></system-err>
+</testsuite>
