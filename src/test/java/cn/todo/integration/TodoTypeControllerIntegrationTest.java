@@ -81,7 +81,7 @@ public class TodoTypeControllerIntegrationTest {
         Assertions.assertEquals(personal.getDescription(), todoType.getDescription());
     }
 
-    //@Test
+//    @Test
     void testTodoTypeDeleteThroughAllLayers() throws Exception {
         mockMvc.perform(delete("/api/todoType/PERSONAL")
                         .contentType("application/json"))
